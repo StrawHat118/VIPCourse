@@ -1,0 +1,71 @@
+@import "init.scss";
+@import "constants.scss";
+.header{
+    width: 100%;//跟着浏览器变化
+    height: 64px;
+    background: #3a3a3a ;
+    overflow: hidden;//指定margin-top会导致外面的盒子与顶部有一定的距离，css的一个bug，overflow：hidden可以清除
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    opacity: 1;
+    margin: 0;
+    padding: 0;
+    z-index: 100;//数值越高越靠上
+    .container {
+        width:$pageWidth;
+        height:100%;//跟着浏览器变化
+        margin: 0 auto;//居中
+        //overflow: hidden;
+
+        .logo-box{
+            width: 155px;
+            height: 64px;
+            background: url("https://www.bufanbiz.com/static/build/images/new-normal-logo.png") no-repeat;
+            margin-top: 13px;//图片往下移
+            float: left;//浮动起来
+            a{
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .nav{
+            margin-left: 128px;
+            float: left;
+
+            li{
+                float: left;
+                margin-right: 70px;
+                line-height: 32px;
+                height: 45px;
+                box-sizing:content-box;
+                list-style: none;
+                a{
+                    text-decoration: none;
+                    color: #FFF;
+                }
+                &.active{
+                    border-bottom: 5px solid #ffffff;
+                }
+            }
+        }
+        .auth-box{
+            float: right;
+            line-height: 64px;
+            height: $navHeight;
+            color: #ffffff;
+
+            .iconfont{
+                color: white;
+                font-size: 20px;
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+}

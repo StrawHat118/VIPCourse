@@ -1,0 +1,158 @@
+@import "constants.scss";
+.footer{
+
+    font-size: 14px;//整个footer中的字体都是这个
+    color: $assistFontColor;
+    padding-top: 20px;
+    .top-group{
+        background: #555e67;
+        height: 102px;
+        padding-top: 20px;//内边距
+        box-sizing: border-box;
+
+        .top-inner-group{
+            width: $pageWidth;
+            margin: 0 auto;//居中显示
+            //overflow: hidden;超出会被隐藏
+            position: relative;//给wx-qrcode提供定位参照物
+
+            .logo-box{
+                width: 168px;
+                height: 54px;
+                float: left;
+                background: url("https://www.bufanbiz.com/static/build/images/foot-logo.png");
+                background-repeat: no-repeat;
+                background-size: 100%;//图片大小
+            }
+
+            .detail-group{
+                float: left;
+                margin-left: 84px;
+
+                .line1{
+                    overflow: hidden;//links和about-us都需要浮动，所以要加上overflow：hidden
+                    .links{
+                        overflow: hidden;
+                        float: left;//和关于我们是在同一行，所以需要浮动起来
+                        padding: 0;
+                        margin-top: 0px;
+                        li{
+                            list-style: none;
+                            float: left;
+                            padding: 0 10px;
+                            &:first-of-type{
+                                padding-left: 0;
+                            }
+                            border-right: 1px solid #c9c9c9;
+
+                            //清除最后一个li标签的右边框
+                            &:last-of-type{
+                                border-right: none;
+                            }
+                            a{
+                                text-decoration: none;
+                                color: #c9c9c9;
+                                &:hover{
+                                    color: $themeColor;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .about-us{
+                        float: left;
+                        margin-top: 0px;
+                        margin-left: 40px;
+                        .title{
+                            float: left;
+                        }
+
+                        .social-group{
+                            overflow: hidden;
+                            float: left;
+                            padding: 0;
+                            margin-top: 0px;
+
+                            li{
+                                list-style: none;
+                                float: left;
+                                color: #ffffff;
+
+                            }
+                            .weixin{
+                                background: url("https://www.bufanbiz.com/static/build/images/weixin-icon.png");
+                                background-repeat: no-repeat;
+                                background-size: 30%;//整个盒子的50%
+                                //position: relative;//给wx-qrcode提供参照物,但是盒子太小，要找个固定的盒子放置
+                                cursor: pointer;
+                                .text{
+                                    margin-left: 24px;
+                                }
+
+                                .wx-qrcode{
+
+                                    width: 204px;
+                                    height: 204px;
+                                    background: url("https://www.bufanbiz.com/static/build/images/wxQr.jpg");
+                                    background-repeat: no-repeat;
+                                    background-size: 100%;
+                                    position: absolute;//绝对定位，想放在哪就放在哪
+                                    top: -210px;
+                                    right: 370px;
+                                    display: none;
+                                }
+                                &:hover{
+                                    .wx-qrcode{
+                                        display: block;
+                                    }
+                                }
+
+                            }
+
+                            .weibo{
+                                margin-left: 20px;
+                                background: url("https://www.bufanbiz.com/static/build/images/xl-icon.png");
+                                background-repeat: no-repeat;
+                                background-size: 20%;
+
+                                .text{
+                                    margin-left: 26px;
+                                    text-decoration: none;
+                                    color: #ffffff;
+                                    &:hover{
+                                        color: $themeColor;
+                                    }
+                                }
+                                }
+                        }
+
+                    }
+                }
+
+                .line2{
+                    overflow: hidden;//清除浮动
+
+                    .address{
+                        float: left;
+                    }
+                    .content{
+                        float: left;
+                        margin-left: 40px;
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    .bottom-group{
+        background: #383e44;
+        height: 64px;
+        text-align: center;//文案横向居中显示
+        line-height: 64px;//行高设置为盒子的高度就可以了，竖向居中
+
+
+    }
+}

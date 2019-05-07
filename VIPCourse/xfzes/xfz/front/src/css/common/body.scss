@@ -1,0 +1,155 @@
+@import "constants.scss";
+@import "init.scss";
+body{
+  background:#eeeeee;
+}
+
+.main{
+    width: 100%;
+    margin-top:$navHeight + 20px;//上间距
+    .wrapper{
+        width: $pageWidth;
+        margin: 0 auto;
+        overflow: hidden;
+        .main-content-wrapper{
+
+            float: left;
+            width: $mainBoxWidth;
+            background: #fff;
+        }
+
+        .news-wrapper{
+
+
+
+
+
+        }
+
+        .sidebar-wrapper{
+            float: right;
+            width: $sidebarWidth;
+            background: #fff;
+
+            .title-group{
+                padding: 20px;//内边距
+                overflow: hidden;//里面的两个子元素都浮动了
+                .title{
+                    float: left;
+                    font-size: 18px;
+                    color: #212121;
+                }
+                .more{
+                    float: right;
+                    font-size: 14px;
+                    color: $themeColor;
+                }
+            }
+            .advertise-group{
+                img{
+                    width: 100%;
+                }
+            }
+            .focus-group{
+                padding: 0  ;
+                overflow: hidden;
+                .left-group{
+                    width: 150px;
+                    float: left;
+                    li{
+                        list-style: none;
+                        width: 100%;
+                        height: 50px;
+                        line-height: 50px;
+                        background: url("https://www.bufanbiz.com/static/build/images/side-icon.png");
+                        background-repeat: no-repeat;//图片不会重复
+                        background-size: 26%;
+                        margin-bottom: 20px ;
+                        overflow: hidden;
+                        a{
+                            float: right;
+                            margin-left: 40px;
+                            color: #878787;
+                            text-decoration: none;
+                            font-size: 14px;
+                        }
+
+                        .zhi-hu{
+                            background-position: 0 0;
+                        }
+                        .wei-bo{
+                            background-position: 0 -60px;
+                        }
+                        .tou-tiao{
+                            background-position: 0 -120px;
+                        }
+                    }
+                }
+                .right-group{
+                    float: right;
+                    width: 100px;
+                    background:url("https://www.bufanbiz.com/static/build/images/wxQr.jpg");
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                    padding: 0;
+                    margin-right: 30px;
+                    .desc{
+                        margin-top: 100px;
+                        color: #878787;
+                        font-size: 12px;
+                    }
+                }
+            }
+            .hot-news-group{
+                .hot-list-group{
+                    list-style: none;
+                    li{
+                        padding: 0 20px 20px ;
+                        overflow: hidden;
+                        border-bottom: 1px solid #eee;
+                        .left-group{
+                            float: left;
+                            width: 204px;
+                            height: 72px;
+                            position: relative;
+                            .title{
+                                font-size: 16px;
+                                a{
+                                    text-decoration: none;
+                                    color: #212121;
+                                    &:hover{
+                                        color: $themeColor;
+                                    }
+                                }
+                            }
+                            .more{
+                                position: absolute;
+
+                                font-size: 12px;
+                                .category{
+                                    color: $themeColor;
+                                    float: left;
+                                }
+                                .pub-time{
+                                    float: right;
+                                    color: $themeColor;
+                                }
+                            }
+
+                        }
+                        .right-group{
+                            float: right;
+                            width: 101px;
+                            height: 72px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

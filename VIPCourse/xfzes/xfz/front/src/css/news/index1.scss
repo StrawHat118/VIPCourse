@@ -1,0 +1,215 @@
+@import "../common/init.scss";
+@import "../common/constants.scss";
+
+body {
+  background: #f2f2f2;
+}
+.header{
+    width: 100%;
+    height: 64px;
+    background: #3a3a3a;
+    position: fixed;//固定定位
+    left: 0;//距离浏览器的左边多少
+    top:0;// 距离浏览器的上边多少
+    right: 0;//距离浏览器的右边多少
+    z-index: 100;
+    //opacity: 0.5;//透明度，半透明
+    //改成固定定位后会脱离文档流，相当于悬浮在网页上面，所以下面在布局的时候相当于导航条不存在一样
+
+    .container{
+      width: $pageWidth;
+      height: 100%;
+      background: yellowgreen;
+      margin: 0 auto;
+
+      .logo-box{
+        width: 147px;
+        height: 39px;
+        background: deeppink;
+        margin-top: 11px;
+        float: left;
+
+        a{
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .nav{
+        margin-left: 128px;
+        float: left;
+
+        li{
+          float: left;
+          margin-right: 100px;
+          list-style: none;
+          box-sizing: content-box;
+
+          a{
+            color: white;
+          }
+
+          &.active{
+            border-bottom: 5px solid #0e275e;
+            height: 43px;//标识符的位置
+          }
+        }
+      }
+
+      .auth-box{
+        float: right;
+        line-height: 64px;
+        height: 64px;
+        background: aquamarine;
+        color: white;
+
+        .iconfont{
+          color: white;
+          font-size: 20px;
+        }
+        a{
+          color: white;
+        }
+      }
+
+
+
+
+
+    }
+  }
+
+
+.main{
+  width: 100%;
+  margin-top: 64px + 20px;
+
+  .wrapper{
+    width: $pageWidth;
+    margin: 0 auto;
+    overflow: hidden; //所有的子盒子都浮动了，就获取不到子盒子的高度
+
+    .news-wrapper{
+      $bannerWidth:$mainBoxWidth;
+      $bannerHight:202px;
+      float: left;
+      width: 798px;
+
+      .banner-group{
+         width: 100%;//自适应，跟news-wrapper宽度一样
+         height: 202px;
+         background: #0e275e ;
+         position: relative;//如果不更改left，top值static和relative都是一样的遵循文档流，相对定位的依据
+         overflow: hidden;
+         z-index: 0;
+        .banner-ul{
+          overflow: hidden;//里面所有的li标签都浮动起来了，ul就获取不到里面元素的高度
+          width: 798*3px;
+          padding: 0;//消除li前面的空白
+          margin: 0;//消除li前面的空白
+          position: absolute;//改成绝对定位才能想放在哪就放在哪，然后往父级找是否是静态定位，需要一个相对值
+
+          li{
+            float: left;
+            width: $bannerWidth;
+            height: $bannerHight;
+            list-style: none;
+            img{
+              width:$bannerWidth;
+              height:$bannerHight;
+            }
+
+          }
+        }
+
+        .arrow{
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          font-size: 70px;
+          color: #ffffff;
+          position: absolute;
+          top:50%;
+          margin-top: -45px;
+          cursor: pointer;//游标变成小手
+          display: none;
+        }
+
+        .left-arrow{
+          left: 20px;
+        }
+
+        .right-arrow{
+          right: 20px;
+        }
+
+        .page-control-group{
+          position: absolute;//使用绝对定位，不需要再指定margin-top是多少了，直接指定bottom就可以放在最底部了
+          left: 0;
+          right: 0;
+          bottom: 20px;
+
+          .page-control{
+            margin: 0 auto;
+            overflow: hidden;//获取里面li标签的所有高度
+            li{
+              list-style: none;//去除 .
+              width: 12px;
+              height: 12px;
+              border: 1px solid #ffffff;
+              border-radius: 50%;//边角的弧度，50%正好为圆形
+              float: left;//使li标签横向显示在一行
+              margin: 0 8px;//上下为0，左右为8px
+              box-sizing: border-box;//默认为content-box 宽度：元素本身的宽度+边框的宽度*2
+              //border-box老老实实等于li的宽度
+              cursor: pointer;//游标变小手
+              &.active{//$表示父元素
+                background: white;
+              }
+
+            }
+          }
+        }
+      }
+
+      .list-outer-group{
+        background: white;
+
+        .list-tab{
+          list-style:none;
+          width: 100%;
+          height: 66px;
+          overflow: hidden;
+          border: 1px solid #eee;//边框 solid是实线的意思
+          border-left: none;//左边无边框
+          border-right:none ;//右边无边框
+          padding: 0;//左边不留白
+          li{
+            float: left;
+            padding: 0 10px;//内边距，上下都为0，左右为8px
+            margin-top: 20px;
+            //line-height: 66px;//设置行高，为list-tab的高度，就跑到中间来了
+            a{
+              //字体的颜色需要在a标签中指定
+              color: #878787;
+            }
+            &:first-of-type {//第一个li标签
+                border-left: 5px solid #5c87d9;
+            }
+            &.active{ //li标签下的a标签被激活
+              a{
+                color: #212121;
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+    .sidebar-wrapper{
+      float: right;
+      width: 356px;
+      height: 500px;
+      background: darkseagreen;
+    }
+  }
+}

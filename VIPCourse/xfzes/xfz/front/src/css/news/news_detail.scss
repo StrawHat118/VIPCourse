@@ -1,0 +1,152 @@
+@import "../common/header.scss";
+@import "../common/body.scss";
+@import "../common/footer.scss";
+@import "../common/constants.scss";
+
+.main{
+    .wrapper{
+        .main-content-wrapper{
+            background:white;
+            padding: 20px;
+            box-sizing: border-box;//padding在盒子内部消化掉
+            .news-wrapper{
+
+              .title{
+                color:$mainFontColor ;
+                font-size: 24px;
+                font-weight: 400;
+              }
+              .news-info{
+                $newsInfoHeight:28px;
+                overflow: hidden;
+                margin-top: 20px;
+                color: $assistFontColor;
+                line-height: 28px;//行高和高度一致的情况下，文字才会处于居中位置
+                height: $newsInfoHeight;
+
+                .info-group{
+                    float: left;
+                    .pub-time{
+                        margin-left: 10px;
+                  }
+                    .category{
+                        margin-left: 10px;
+                        background: $themeColor;
+                        color: white;
+                        padding: 0  5px ;//上下内边距为0，左右为5px
+                        border-radius: 2px;//设置圆角
+                    }
+                }
+                .share-group{
+                    float: right;
+                    overflow: hidden;//清除浮动
+                    span{
+                        float: left;
+                    }
+                    .share-item{
+                        float: left;
+                        width: 28px;
+                        height: 28px;
+                        background-image: url("https://www.bufanbiz.com/static/build/images/share.png");
+                        background-size: 240%;
+                        background-repeat: no-repeat;
+                    }
+                    .weixin{
+
+                    }
+                    .weibo{
+                        margin-left: 10px;
+                        background-position: -39px 0;
+
+                    }
+
+                }
+              }
+              .article{
+                  margin-top: 20px;
+                  img{
+                      max-width: 100%;//限制图片的宽度
+                  }
+              }
+
+      }
+            .comment-wrapper{
+                border-top: 1px solid $lineColor;
+                padding-top: 20px;
+                .title{
+                    color: $mainFontColor;
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+                .comment-textarea{
+                    margin-top: 10px;
+                    width: 100%;
+                    resize: none;//禁止手动调大小
+                    outline: none;//输入时的外边框
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    padding: 6px 10px;
+                    box-sizing: border-box;
+                }
+                .nologin-textarea{
+                    height: 40px;
+                    line-height: 26px;
+                    overflow: hidden;//隐藏滚动条
+                }
+                .login-textarea{
+                    height: 80px;
+
+                }
+                .submit-btn-group{
+                    text-align: right;//button是行内元素，只需要将外面的大盒子指定一个text-align:right，就会跑到右边去
+                    margin-top: 14px;
+                    .button-btn{
+                        background: $themeColor;
+                        border: none;
+                        padding: 6px 10px;
+                        color: #fff;
+                        border-radius: 5px;
+                        cursor: pointer;//鼠标放上去变成小手
+                        outline: none;
+                    }
+                }
+                .comment-list{
+                    margin-top: 20px;
+                    list-style: none;
+                    padding-left: 0;
+                    li{
+                        //margin-top: 10px;
+                        margin-bottom: 20px;//底部的外边距
+                        border-bottom: 1px solid $lineColor;
+                        padding-bottom: 20px;
+                      .comment-info{
+                            overflow: hidden;//里面三个元素都浮动了
+                            height: 40px;
+                            line-height: 40px;//文字居中对齐
+                            color: $assistFontColor;
+                            font-size: 16px;
+                            .avata{
+                                float: left;
+                                width:40px ;
+                                height:40px;
+                                border-radius: 50%;//圆形
+                            }
+                            .author{
+                                float: left;
+                                margin-left: 20px;
+                            }
+                            .pub-time{
+                                float: right;
+                            }
+                        }
+                        .comment-content{
+                            margin-top: 10px;
+                            margin-left: 60px;
+                        }
+                    }
+                }
+            }
+    }
+  }
+}
