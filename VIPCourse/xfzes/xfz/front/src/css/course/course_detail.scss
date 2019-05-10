@@ -1,0 +1,156 @@
+@import "../common/header.scss";
+@import "../common/footer.scss";
+@import "../common/body.scss";
+@import "../common/constants.scss";
+@import "../common/init.scss";
+@import "course_nav.scss";
+
+.main{
+    .wrapper{
+        width: 1070px;
+        margin-top: 5px;
+        .course-wrapper{
+            background: #fff;
+
+
+            .course-info{
+                padding: 20px;
+                padding-top: 1px;
+                overflow: hidden;
+                .course-title{
+                    color: $assistFontColor;
+                    font-size: 20px;
+                    }
+                .price-group{
+                    float: left;
+                    overflow: hidden;
+                }
+                .buy-group{
+                    float: right;
+                    .price{
+                        font-size: 16px;
+                    }
+                    .free{
+                         color: #7ed321;
+                    }
+                    .pay{
+                        color: #f76363;
+                    }
+                    .buy-btn{
+                        color: #fff;
+                        background: #ff8d3f;
+                        height: 40px;
+                        width: 120px;
+                        display: inline-block;//宽高如果要对行内元素生效，要把行内元素转化成行内块级元素
+                        text-align: center;//文本左右居中
+                        line-height: 40px;//文本行高等于盒子的高度
+                        border-radius: 5px;//设置圆角
+                        margin-left: 20px;
+                    }
+                }
+                }
+
+            .video-group{
+                background: pink;
+                width: 100%;
+                height: 600px;
+            }
+
+
+
+            }
+        .bottom-wrapper{
+            margin-top: 5px;
+            overflow: hidden;
+            .course-detail-wrapper{
+                width: 700px;
+                float: left;
+                .item-group{
+                    background: #fff;
+                    padding: 20px;
+                    .item-title{
+                        color: $mainFontColor;
+                        font-size: 18px;
+                        border-left: 5px solid $themeColor;//左边框
+                        padding-left: 15px;
+                    }
+                    .teacher-group{
+                        overflow: hidden;
+                        margin-top: 20px;
+                        .avatar-group{
+                            float: left;
+                            width: 60px;
+                            height: 60px;
+
+                            img{
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 50%;
+
+                            }
+                        }
+                        .teacher-info{
+                            float: left;
+                            margin-left: 10px;
+                            color: $assistFontColor;
+                        }
+                    }
+                    .item-content{
+                        color: rgb(68,68,68);
+                        margin-top: 20px;
+                        line-height: 1.8;//当前字体的1.8倍
+                    }
+
+                }
+
+            }
+            .recommand-wrapper{
+                width: 355px;
+                float: right;
+                background: #fff;
+                padding: 20px;
+                box-sizing: border-box;//内边距在内部消耗掉
+                .recommand-title{
+                    color: $mainFontColor;
+                    font-size: 18px;
+                }
+                .course-list{
+                    li{
+                        overflow: hidden;
+                        padding: 20px 0;//上下20px，左右0
+                        margin-left: -40px;
+                        margin-top: -20px;
+                        .course-info-group{
+                            padding-left: 1px;
+                            float: left;
+                            width: 150px;
+                            height: 90px;
+                            position: relative;//
+                            .course-title{
+                                 font-size: 16px;
+                                color: $mainFontColor;
+                                margin-top: -5px;
+                            }
+                            .teacher{
+                                position: absolute;//紧挨着底部的绝对定位
+                                left: 0;
+                                right: 0;
+                                bottom: -20px;
+                                color: $assistFontColor;
+                            }
+                        }
+                        .thumbnail-group{
+                            float: right;
+                            width: 160px;
+                            height: 90px;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        }
+    }

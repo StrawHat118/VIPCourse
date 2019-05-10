@@ -1,0 +1,58 @@
+body{
+  background: pink;
+}
+
+.mask-wrapper{
+    position: fixed;//永远在浏览器的这个位置，固定定位
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0,0,0,0.3);
+    overflow: scroll;
+    .auth-wrapper{
+        $authWrapperHeight:500px;
+        $authWrapperWidth:400px;
+        width: $authWrapperWidth;
+        height: $authWrapperHeight;
+        background: red;
+        margin: 40px auto;//上下间距是0，左右auto就是居中
+        .close-wrapper{
+            width: 100%;
+            height: 40px;
+            background: salmon;
+            .close-btn{
+                color: #7ed321;
+            }
+        }
+        .auth-inner-wrapper{
+            width: 100%;
+            height: 460px;
+            background: pink;
+            position: relative;
+            overflow: hidden;
+            .scrool-wrapper{
+                width: $authWrapperWidth*2;
+                height: 100%;
+                background: #ffffff;
+                position: absolute;
+                top: 0;
+                left: -400px;
+                .auth-group{
+                    width: $authWrapperWidth;
+                    height: 100%;
+                }
+                .signin-group{
+                    float: left;
+                    background: #f54a4a;
+                }
+                .signup-group{
+                    float: right;
+                    background: aqua ;
+                }
+            }
+        }
+
+    }
+
+}

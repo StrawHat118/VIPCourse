@@ -1,0 +1,49 @@
+@import "../common/constants.scss";
+
+.main{
+    margin-top: 64px;
+    .course-nav{
+        overflow: hidden;
+        $courseNavHeight:54 px;
+        width: 100%;
+        height: $courseNavHeight;
+        box-shadow: 0 4px 5px rgba(0,0,0,0.1);
+        line-height: $courseNavHeight;//垂直居中
+
+        .nav-container{
+            width: $pageWidth;
+            height: $courseNavHeight;
+            margin: 0 auto;//居中
+            overflow: hidden;
+
+            h3.title{
+                float: left;
+                color: #696969;
+                font-size: 24px;
+            }
+            .nav-list{
+                float: left;
+                margin-left: 100px;
+
+                li{
+                    list-style: none;
+                    float: left;
+                    margin-right: 100px;
+                  line-height: 50px;//垂直居中
+
+
+                    a{
+                        color: #888;
+                        text-decoration: none;
+                    }
+                    &.active{
+                        a{
+                            color: $mainFontColor;
+
+                        }
+                    }
+                }
+             }
+        }
+    }
+}
