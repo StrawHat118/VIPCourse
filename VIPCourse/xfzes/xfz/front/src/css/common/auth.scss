@@ -1,5 +1,11 @@
+@import "constants.scss";
+@import "init.scss";
 body{
   background: pink;
+}
+
+#btn{
+    cursor: pointer;
 }
 
 .mask-wrapper{
@@ -10,45 +16,119 @@ body{
     top: 0;
     background: rgba(0,0,0,0.3);
     overflow: scroll;
+    display: none;
     .auth-wrapper{
-        $authWrapperHeight:500px;
+        $authWrapperHeight:540px;
         $authWrapperWidth:400px;
         width: $authWrapperWidth;
         height: $authWrapperHeight;
-        background: red;
+        //background: #fff;
         margin: 40px auto;//上下间距是0，左右auto就是居中
         .close-wrapper{
             width: 100%;
             height: 40px;
-            background: salmon;
+            background: #fff;
             .close-btn{
-                color: #7ed321;
+                color: $assistFontColor;
+                display: inline-block;//对行内元素设置宽高要先设置成行内块元素
+                width: 30px;
+                height: 30px;
+                float: right;
+                margin-top: 10px;
+                cursor: pointer;//鼠标放上面变成小手
             }
         }
         .auth-inner-wrapper{
             width: 100%;
-            height: 460px;
-            background: pink;
+            height: 480px;
+            //background: pink;
             position: relative;
             overflow: hidden;
             .scrool-wrapper{
                 width: $authWrapperWidth*2;
-                height: 100%;
-                background: #ffffff;
+                //height: 100%;
+                //background: #ffffff;
                 position: absolute;
                 top: 0;
-                left: -400px;
+                left: 0px;
                 .auth-group{
                     width: $authWrapperWidth;
                     height: 100%;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+
+                    .top-group{
+                        height: 36px;
+                        border-bottom: 1px solid $lineColor;
+                        line-height: 33px;
+
+                        .title{
+                            float: left;
+                            color: $mainFontColor;
+                            border-bottom: 3px solid $themeColor;
+                        }
+                        .switch{
+                            text-decoration: none;
+                            float: right;
+                            color: $themeColor;
+                        }
+
+
+                    }
+                    .form-group{
+                        margin-top: 20px;
+                        .input-group{
+                            margin-bottom: 20px;
+                            height: 40px;
+                            .remember-label{
+                                font-size: 14px;
+                            }
+                            .form-control{
+                                border: 1px solid #ccc;
+                                padding: 10px;
+                                width: 100%;
+                                box-sizing: border-box;//padding值在内部消化掉
+                                height: 40px;
+                                outline: none;//消除输入框的边框
+
+                            }
+                            .submit-btn{
+                                width: 100%;
+                                height: 40px;
+                                background: $themeColor;
+                                color: #fff;
+                                cursor: pointer;
+                                outline: none;
+                            }
+                            .short-input-group{
+                                width: 250px;
+                                float: left;
+                            }
+                            .input-group-addon{
+                                float: right;
+                                width: 100px;
+                                .sms-captcha-btn{
+                                    width: 100%;
+                                    height: 40px;
+                                    display: inline-block;
+                                    border: 1px solid $themeColor;
+                                    color: $themeColor;
+                                    line-height: 40px;
+                                    text-align: center;//垂直方向居中
+                                    box-sizing: border-box;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
                 }
                 .signin-group{
                     float: left;
-                    background: #f54a4a;
+                    background: #fff;
                 }
                 .signup-group{
                     float: right;
-                    background: aqua ;
+                    background: #fff ;
                 }
             }
         }
