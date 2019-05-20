@@ -13,6 +13,7 @@
     margin: 0;
     padding: 0;
     z-index: 100;//数值越高越靠上
+    overflow: visible;
     .container {
         width:$pageWidth;
         height:100%;//跟着浏览器变化
@@ -66,6 +67,38 @@
                 text-decoration: none;
                 color: white;
             }
+            .user-more-box{
+            background: #fff;
+            width: 140px;
+            height: 90px;
+            position: absolute;
+            box-shadow: 0 3px 4px #ccc;
+            border-radius: 5px;
+            top: 65px;
+            right:30px;
+            font-size: 14px;
+            z-index: 2;
+            display: none;
+            .triangle{
+                border: solid transparent;
+                border-width: 10px;
+                border-bottom-color: #fff;
+                display: block;
+                width: 0;
+                height: 0;
+                margin-top: -20px;
+                margin-left: 60px;
+            }
+            a{
+                text-align: center;
+                height: 44px;
+                color: #6d85ac!important;
+                display: block;
+                line-height: 44px;
+
+            }
+        }
+
         }
     }
 }

@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="{% static '/css/common/auth.min.css'%}">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_970281_o5k3j2mbfft.css">
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/auth.min.js' %}"></script>
+    <script src="{% static 'js/message.min.js'%}"></script>
+    <script src="{% static 'js/xfzajax.min.js' %}"></script>
+    <script src="{% static 'js/front_base.min.js' %}"></script>
 
     {% block head %}
     
@@ -28,8 +30,18 @@
             </ul>
             <div class="auth-box">
                 <i class="icon-person iconfont" ></i>
-                <a href="#" class="signin-btn">登录</a> /
-                <a href="#" class="signup-btn">注册</a>
+                {% if user.is_authenticated %}
+                    <a href="#" class="authenticated-box">{{ user.username }}</a>
+                    <div class="user-more-box">
+                        <i class="triangle"></i>
+                        <a href="#">管理系统</a>
+                        <a href="{% url 'xfzauth:logout'%}">退出登录</a>
+                    </div>
+                {% else %}
+                    <a href="#" class="signin-btn">登录</a> /
+                    <a href="#" class="signup-btn">注册</a>
+                {% endif %}
+
             </div>
         </div>
     </header>
@@ -102,7 +114,7 @@
                                 </label>
                             </div>
                             <div class="input-group">
-                                <input type="submit" class="submit-btn" value="立即注册">
+                                <input type="submit" class="submit-btn" value="立即登录">
                             </div>
                         </div>
 
@@ -124,7 +136,7 @@
                                     <input type="text" class="form-control" name="img_captcha" placeholder="图形验证码">
                                 </div>
                                 <div class="input-group-addon">
-                                    <img src="" alt="">
+                                    <img src="{% url 'xfzauth:img_captcha'%}" alt="" class="img-captcha" style="cursor: pointer">
                                 </div>
                             </div>
                             <div class="input-group">
