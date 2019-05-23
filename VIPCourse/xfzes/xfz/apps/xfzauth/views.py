@@ -64,7 +64,8 @@ def sms_captcha(request):
     cache.set(telephone,code,5*60)
     print('短信验证码:',code)
     result = smssender.send(telephone,code)
-    if result:
+    print(result)
+    if result:#如果result等于true
         return restful.ok()
     else:
         return restful.params_error(message="短信验证码发送失败！")

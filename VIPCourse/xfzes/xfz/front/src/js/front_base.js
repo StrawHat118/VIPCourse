@@ -48,6 +48,8 @@ function Auth() {
     var self = this;//后期不会产生冲突，this在不同的函数中代表不同的对象
     self.maskWrapper = $('.mask-wrapper')
     self.scrollWrapper = $(".scrool-wrapper");
+    self.smsCaptcha = $('.sms-captcha-btn');
+
 
 
 }
@@ -59,6 +61,7 @@ Auth.prototype.run = function () {
     self.listenSwitchEvent();
     self.listenSigninEvent();
     self.listenImgCaptchaEvent();
+    self.listenSmsCaptchaEvent();
 }
 //展示事件
 Auth.prototype.showEvent = function(){
@@ -174,6 +177,55 @@ Auth.prototype.listenImgCaptchaEvent = function(){
         imgCaptcha.attr("src","/account/img_captcha"+"?random="+Math.random())
     })
 }
+
+Auth.prototype.smsSuccessEvent = function () {
+    var self = this;
+    messageBox.showSuccess('短信验证码发送成功！');
+    self.smsCaptcha.addClass('disabled');
+    var count = 10;
+    self.smsCaptcha.unbind('click');
+    var timer = setInterval(function () {
+        self.smsCaptcha.text(count+'s');
+        count -= 1;
+        if(count <= 0){
+            clearInterval(timer);
+            self.smsCaptcha.removeClass('disabled');
+            self.smsCaptcha.text('发送验证码');
+            self.listenSmsCaptchaEvent();
+        }
+    },1000);
+};
+
+Auth.prototype.listenSmsCaptchaEvent = function(){
+    var self = this;
+    var smsCaptcha = $('.sms-captcha-btn');
+    var telephoneInput = $(".signup-group input[name='telephone']");
+    smsCaptcha.click(function () {
+        var telephone = telephoneInput.val();
+        if(!telephone){
+            messageBox.showInfo('请输入手机号码！');
+        }
+        else {
+            xfzajax.get({
+            'url':'/account/sms_captcha/',
+            'data':{
+                'telephone':telephone,
+            },
+            'success':function (result) {
+                if(result['code']==200){
+                    console.log(result);
+                    self.smsSuccessEvent();
+                }
+            },
+            'fail':function () {
+                console.log(error);
+            }
+        })
+
+        }
+    })
+}
+
 
 
 //整个网页全都加载出来后才会调用该函数
