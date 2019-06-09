@@ -58,6 +58,7 @@
             line-height: 64px;
             height: $navHeight;
             color: #ffffff;
+            position: relative;//相对定位
 
             .iconfont{
                 color: white;
@@ -70,12 +71,13 @@
             .user-more-box{
             background: #fff;
             width: 140px;
-            height: 90px;
-            position: absolute;
+            //height: 90px;//不能写死
+            position: absolute;//绝对定位
             box-shadow: 0 3px 4px #ccc;
             border-radius: 5px;
             top: 65px;
-            right:30px;
+            left:50%;
+            margin-left: -70px;
             font-size: 14px;
             z-index: 2;
             display: none;

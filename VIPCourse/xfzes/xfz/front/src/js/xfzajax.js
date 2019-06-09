@@ -18,6 +18,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
+
 var xfzajax = {
     'get': function (args) {
         args['method'] = 'get';

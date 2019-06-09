@@ -1,4 +1,5 @@
 {% extends 'base/front_base.html' %}
+{% load news_filters %} <!--这样就可以加载时间过滤器了-->
 {% block title %}
     小饭桌
 {% endblock %}
@@ -55,55 +56,30 @@
                 </div>
                 <div class="list-outer-group">
                     <ul class="list-tab">
-                        <li class="active"><a href="#">最新资讯</a></li>
-                        <li><a href="#">热点</a></li>
-                        <li><a href="#">深度报道</a></li>
-                        <li><a href="#">干活分享</a></li>
-                        <li><a href="#">投资人说</a></li>
+                        {% for category in categories %}
+                            <li><a href="#">{{ category.name }}</a></li>
+                        {% endfor %}
+                        
                     </ul>
                     <ul class="list-inner-group">
-                        <li>
+                        {% for news in newses %}
+                            <li>
                             <div class="thumbnail-group">
-                                <a href="#"><img src="https://static-image.xfz.cn/1546099706_695.png-website.news.list" alt=""></a>
+                                <a href="#"><img src="{{ news.thumbnail }}" alt=""></a>
                             </div>
                             <div class="news-group">
-                                <p class="title"><a href="#">企迈云商A轮融资5000万 凡创资本领投</a></p>
-                                <p class="desc">此次融资将主要用于产品的迭代和升级，加强产品功能研发，以覆盖更多线下服务场景；同时引入人才、加强市场推广和商家落地运营扶持。 </p>
+                                <p class="title"><a href="#">{{ news.title }}</a></p>
+                                <p class="desc">{{ news.desc }}</p>
                                 <p class="more">
-                                    <span class="category">深度报道</span>
-                                    <span class="pub-time">一十小时前</span>
-                                    <span class="author">知了课堂</span>
+                                    <span class="category">{{ news.category.name }}</span>
+                                    <span class="pub-time">{{ news.pub_time|time_since  }}</span>
+                                    <span class="author">{{ news.author.username }}</span>
                                 </p>
                             </div>
                         </li>
-                        <li>
-                            <div class="thumbnail-group">
-                                <a href="#"><img src="https://static-image.xfz.cn/1546062514_615.jpg-website.news.list" alt=""></a>
-                            </div>
-                            <div class="news-group">
-                                <p class="title"><a href="#">吴晓波：马化腾说ofo就败在一票否决？我看不止</a></p>
-                                <p class="desc">回望过去，共享单车行业的消失以及ofo的大败局，应该是风险资本和产业资本联手捧杀的结果，这样的结论既可笑又可怕</p>
-                                <p class="more">
-                                    <span class="category">深度报道</span>
-                                    <span class="pub-time">一十小时前</span>
-                                    <span class="author">知了课堂</span>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="thumbnail-group">
-                                <a href="#"><img src="https://static-image.xfz.cn/1546049161_142.jpg-website.news.list" alt=""></a>
-                            </div>
-                            <div class="news-group">
-                                <p class="title"><a href="#">早报：拼多多屏蔽权健商品；苏宁易购清空阿里股票；Facebook否认小扎卸任董事长</a></p>
-                                <p class="desc">万家乐被捕董事长拒签文件 翰晟清算受阻</p>
-                                <p class="more">
-                                    <span class="category">深度报道</span>
-                                    <span class="pub-time">二十小时前</span>
-                                    <span class="author">路边社</span>
-                                </p>
-                            </div>
-                        </li>
+
+                        {% endfor %}
+                        
                     </ul>
                     <ul class="load-more-group">
                         <button class="load-more">

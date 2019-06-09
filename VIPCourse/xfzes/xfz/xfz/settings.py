@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.news',
     'apps.xfzauth',
+    'apps.cms',
+    'apps.ueditor',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -114,6 +117,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'xfzauth.User'
 
+#缓存配置
+
+CACHES = {
+    'default':{
+        'BACKEND':'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION':'127.0.0.1:11211'
+    }
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -136,3 +148,32 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR,'front','dist')
 ]
+
+
+
+
+# Qiniu配置
+QINIU_ACCESS_KEY = 'eQhVp2xRuMTichslHx4dnlIqbAq5IH0QFmDJqx-O'
+QINIU_SECRET_KEY = 'Mw-_7FQyn3O382OdRQ9UYRLiHYwwRTsmll3OXBwB'
+QINIU_BUCKET_NAME = 'musk_118'
+QINIU_DOMAIN = 'http://psid3o9h4.bkt.clouddn.com/'
+
+# 七牛和自己的服务器，最少要配置一个
+# UEditor配置
+UEDITOR_UPLOAD_TO_QINIU = True
+UEDITOR_QINIU_ACCESS_KEY = QINIU_ACCESS_KEY
+UEDITOR_QINIU_SECRET_KEY = QINIU_SECRET_KEY
+UEDITOR_QINIU_BUCKET_NAME = QINIU_BUCKET_NAME
+UEDITOR_QINIU_DOMAIN = QINIU_DOMAIN
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+
+UEDITOR_UPLOAD_TO_SERVER = True
+UEDITOR_UPLOAD_PATH = MEDIA_ROOT
+UEDITOR_CONFIG_PATH = os.path.join(BASE_DIR,'front','dist','ueditor','config.json')
+
+#一次加载多少篇文章
+ONE_PAGE_NEWS_COUNT = 2

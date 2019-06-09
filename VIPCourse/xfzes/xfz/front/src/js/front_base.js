@@ -62,6 +62,7 @@ Auth.prototype.run = function () {
     self.listenSigninEvent();
     self.listenImgCaptchaEvent();
     self.listenSmsCaptchaEvent();
+    self.listenSignupEvent();
 }
 //展示事件
 Auth.prototype.showEvent = function(){
@@ -113,6 +114,7 @@ Auth.prototype.listenSwitchEvent =
 
     })
     }
+
 
 //监听登录事件
 Auth.prototype.listenSigninEvent =
@@ -168,6 +170,73 @@ Auth.prototype.listenSigninEvent =
         })
 
     };
+
+Auth.prototype.listenSignupEvent =
+        function(){
+        var self = this;
+        var signupGroup = $('.signup-group');
+        var submitBtn = signupGroup.find(".submit-btn");
+
+
+
+        var telephoneInput = signupGroup.find("input[name='telephone']");
+        var usernameInput = signupGroup.find("input[name='username']");
+        var imgCaptchaInput = signupGroup.find("input[name='img_captcha']");
+        var password1Input = signupGroup.find("input[name='password1']");
+        var password2Input = signupGroup.find("input[name='password2']");
+        var smsCaptchaInput = signupGroup.find("input[name='sms_captcha']");
+        submitBtn.click(function () {
+
+            var telephone = telephoneInput.val();
+            var username = usernameInput.val();
+            var img_captcha = imgCaptchaInput.val();
+            var password1 = password1Input.val();
+            var password2 = password2Input.val();
+            var sms_captcha = smsCaptchaInput.val();
+            xfzajax.post({
+                'url':'/account/register/',
+                'data':{
+                    'telephone':telephone,
+                    'username':username,
+                    'img_captcha':img_captcha,
+                    'password1':password1,
+                    'password2':password2,
+                    'sms_captcha':sms_captcha
+                },
+                'success':function (result) {
+                    if(result['code'] === 200){
+                        self.hideEvent();
+                        window.location.reload();//重新加载页面
+                    }
+                    else{
+                        var messageObject = result['message'];
+                        console.log(messageObject)
+                        if(typeof messageObject=="string" ||messageObject.constructor==String){
+                            window.messageBox.show(messageObject);
+                        }
+                        else {
+                            for(var key in messageObject){
+                                var messages = messageObject[key];
+                                var message = messages['message'];
+                                window.messageBox.show(message);
+
+
+                            }
+                        }
+
+                    }
+                },
+                'fail':function (error) {
+                    console.log(error)
+                }
+
+            })
+
+
+        })
+
+    };
+
 
 //监听
 Auth.prototype.listenImgCaptchaEvent = function(){
