@@ -22,10 +22,10 @@ def news_list(request):
     newses = News.objects.order_by('-pub_time')[start:end]
     serializer = NewsSerializers(newses,many=True)#many代表有很多的数据可以序列化
     data = serializer.data
-    newsess = newses.values()
-    for new in newsess:
-        print(new)
-    return restful.result(data=newsess)
+    # newsess = newses.values()
+    # for new in newsess:
+    #     print(new)
+    return restful.result(data=data)
 
 def news_detail(request,news_id):
     return render(request,'news/news-detail.html')
