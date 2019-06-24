@@ -13,10 +13,10 @@
     {{ each newses news index }}
     <li>
         <div class="thumbnail-group">
-            <a href="#"><img src="{{ news.thumbnail }}" alt=""></a>
+            <a href="/news/{{ news.id }}/"><img src="{{ news.thumbnail }}" alt=""></a>
         </div>
         <div class="news-group">
-            <p class="title"><a href="#">{{ news.title }}</a></p>
+            <p class="title"><a href="/news/{{ news.id }}/">{{ news.title }}</a></p>
             <p class="desc">{{ news.desc }}</p>
             <p class="more">
                 <span class="category">{{ news.category.name }}</span>
@@ -36,35 +36,13 @@
             <div class="main-content-wrapper">
                 <div class="banner-group" id="banner-group">
                     <ul class="banner-ul" id="banner-ul">
-                        <li>
-                           <a href="#">
-                               <img src="https://static-image.xfz.cn/1544150102_68.jpg" alt="">
+                        {% for banner in banners %}
+                            <li>
+                           <a href="{{ banner.link_to }}">
+                               <img src="{{ banner.image_url }}" alt="">
                            </a>
                         </li>
-                        <li>
-                           <a href="#">
-                               <img src="https://static-image.xfz.cn/1544150102_68.jpg" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                               <img src="https://static-image.xfz.cn/1544150102_68.jpg" alt="">
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#">
-                               <img src="https://static-image.xfz.cn/1544150102_68.jpg" alt="">
-                           </a>
-                        </li><li>
-                           <a href="#">
-                               <img src="https://static-image.xfz.cn/1544150102_68.jpg" alt="">
-                           </a>
-                        </li><li>
-                           <a href="#">
-                               <img src="https://static-image.xfz.cn/1544150102_68.jpg" alt="">
-                           </a>
-                        </li>
-
+                        {% endfor %}
                     </ul>
                     <span class="arrow left-arrow">‹</span>
                     <span class="arrow right-arrow">›</span>
@@ -76,8 +54,9 @@
                 </div>
                 <div class="list-outer-group">
                     <ul class="list-tab">
+                        <li class="active" cata-category="0"><a href="javascript:void(0);">最新资讯</a></li>
                         {% for category in categories %}
-                            <li><a href="#">{{ category.name }}</a></li>
+                            <li data-category="{{ category.pk }}"><a href="#">{{ category.name }}</a></li>
                         {% endfor %}
                         
                     </ul>
@@ -85,10 +64,10 @@
                         {% for news in newses %}
                             <li>
                             <div class="thumbnail-group">
-                                <a href="#"><img src="{{ news.thumbnail }}" alt=""></a>
+                                <a href="{% url 'news:news_detail' news_id=news.pk %}"><img src="{{ news.thumbnail }}" alt=""></a>
                             </div>
                             <div class="news-group">
-                                <p class="title"><a href="#">{{ news.title }}</a></p>
+                                <p class="title"><a href="{% url 'news:news_detail' news_id=news.pk %}">{{ news.title }}</a></p>
                                 <p class="desc">{{ news.desc }}</p>
                                 <p class="more">
                                     <span class="category">{{ news.category.name }}</span>

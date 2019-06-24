@@ -1,13 +1,26 @@
-
-
 {% extends 'base/front_base.html' %}
+{% load news_filters %}
 {% block title %}
     新闻详情-小饭桌
 {% endblock %}
 
 {% block head %}
         <link rel="stylesheet" href="{% static '/css/news/news_detail.min.css' %}">
+    <script src="{% static 'arttemplate/template-web.js' %}"></script>
+    <script src="{% static 'js/news_detail.min.js' %}"></script>
+    <script id="comment-item" type="text/html">
+    {% verbatim %}
+     <li>
+        <div class="comment-info">
+            <img src="https://pbs.twimg.com/profile_images/994898785829564428/Xqpr5Mtg_bigger.jpg" alt="" class="avata">
+            <span class="author">{{ comment.author.username }}</span>
+            <span class="pub-time">{{ comment.pub_time|timeSince  }}</span>
+        </div>
+        <p class="comment-content">{{ comment.content  }}</p>
+    </li>
+    {% endverbatim %}
 
+</script>
 
 {% endblock %}
 
@@ -16,12 +29,12 @@
         <div class="wrapper">
             <div class="main-content-wrapper">
                 <div class="news-wrapper">
-                    <h1 class="title">【小饭桌早报】ABC360裁员近三成，公司未来将走向何方</h1>
+                    <h1 class="title">{{ news.title }}</h1>
                     <div class="news-info">
                         <div class="info-group">
-                            <span class="author">Musk</span>
-                            <span class="pub-time">1月8日</span>
-                            <span class="category">热点</span>
+                            <span class="author">{{ news.author.username }}</span>
+                            <span class="pub-time">{{ news.pub_time|time_since }}</span>
+                            <span class="category">{{ news.category.name }}</span>
                     </div>
                     <div class="share-group">
                         <span>分享至：</span>
@@ -30,9 +43,7 @@
                     </div>
                     </div>
                     <article class="article">
-                        <div class="content-detail">
-                            <section data-role="outer" label="Powered by 135editor.com"><section data-role="outer" label="Powered by 135editor.com"><section><section><section><p><span style="color: rgb(63, 63, 63);">最近的离婚事件把亚马逊CEO、世界首富贝佐斯再次推到了聚光灯下。</span></p><p><span style="color: rgb(63, 63, 63);">毫无疑问贝佐斯是一个成功的商人，但回顾他的成功之路，总能看到童年经历对他的影响。</span></p><p><span style="color: rgb(63, 63, 63);">贝佐斯17个月大的时候父母就选择了离婚，对于一个小孩子而言，这种变故会给他带去强烈的不安全感。亚马逊传记《一网打尽》的作家布拉德·斯通认为，是贝佐斯这样的童年经历培养了他对成功的执着。</span></p><p><span style="color: rgb(63, 63, 63);">“我做事业的动力来自于对我抱有希望的人，我喜欢被人依靠。”</span></p></section></section></section><section><section><section><img class="" data-type="jpeg" data-w="640" _width="100%" src="https://mpt.135editor.com/mmbiz_jpg/hzGVnWia1nhWibjYvSywMsWJxyicjjklPI5kkut0HjVdVVOIgdRogoEsNVhERgnRwLQUpibh6uicmdKKHiaSp1GebDGw/640?wx_fmt=jpeg&amp;wx_co=1" data-fail="0" style="vertical-align: middle; width: 100%; visibility: visible !important;"></section></section></section><section><section><section><p><span style="color: rgb(63, 63, 63);">杰夫·贝佐斯</span></p></section></section></section><section><section><section><p><span style="color: rgb(63, 63, 63);">对于童年时期的贝佐斯而言，消除内心的不安全感主要靠两样东西，一个是读书，另一个是母亲杰奎琳的关怀。</span></p><p><span style="color: rgb(63, 63, 63);">从单亲少年成长为世界首富，贝佐斯通过读书启蒙心智，获取力量。相比外在给予的力量，这种力量可以通过自发驱动产生，从而帮助小贝佐斯获得了足以抵消不安全感的掌控感，而且这种掌控感无比正向，帮助他掌控自己的未来。</span></p><p><span style="color: rgb(63, 63, 63);">另外，依靠母亲的关怀，小贝佐斯得到了心灵的慰藉，让他有了被人依靠的渴望，从而成为了他最大的前进动力。</span></p><p><span style="color: rgb(63, 63, 63);">相比贝佐斯的经历，在中国广大的农村偏远地区，越来越多孩子因父母外出打工，成为了缺乏安全感的留守儿童。</span></p><p><span style="color: rgb(63, 63, 63);">相比物质上的匮乏，这些留守儿童更需要心灵的慰藉和精神上的关注。有大量的社会科学研究表明，留守儿童存在低自尊、高压力、孤独、无助甚至抑郁的倾向。一项调查显示，43.6%的留守儿童有行为问题或精神问题。因此他们更需要来自于知识的启迪，来自于外界的哪怕一丁点关怀。</span></p><p><span style="color: rgb(63, 63, 63);">1月12日—13日，轻松筹易烊千玺爱心基金旧书公益行动， 以“千言万语 想和你说”为主题，用书籍和一份真诚的祝福为留守儿童送去心灵的慰藉；“书”送希望，“声”传温暖，为留守儿童打开一个情感出口。 同时，轻松筹公益影展在北京三里屯通盈中心举办，影展现场展示的照片涵盖了轻松公益上近20个儿童相关筹款项目，此次活动旨在呼吁社会各界关</span><span style="color: rgb(63, 63, 63);">注儿童健康成长，依托轻松筹“善基因”的传染力，一起传递爱心，传递指尖公益理念。</span></p><p style="text-align: left;"><span style="color: rgb(63, 63, 63);"><img src="https://static-image.xfz.cn/1547721465_262.jpg" title="" alt="1.jpg"></span></p><p><span style="color: rgb(63, 63, 63);">活动吸引了超过10万热心公益的爱心人士通过线上及线下方式的参与，人们带上书籍捐送给留守儿童，通过“万语”声音邮局对留守儿童说一句祝福的话，并写下想对小朋友说的话，夹在书中一同寄给小朋友，为缺乏父母陪伴的留守儿童送去书本与关爱。</span></p></section></section></section><section><section><section><img class="" data-type="jpeg" data-w="640" _width="100%" src="https://mpt.135editor.com/mmbiz_jpg/hzGVnWia1nhWibjYvSywMsWJxyicjjklPI5Bs53U9kppxjLibVxNrAEWOs2kbRncSbU7Qoy9OA7BT0GxS4ibk7jLvcQ/640?wx_fmt=jpeg&amp;wx_co=1" data-fail="0" style="vertical-align: middle; width: 100%; visibility: visible !important;"></section></section></section><section><section><section><p><span style="color: rgb(63, 63, 63);">活动期间，微博话题阅读量超过8300万，全网传播覆盖近1.6亿人次。</span></p></section></section></section><section><section><section><img class="" data-type="png" data-w="640" _width="100%" src="https://mpt.135editor.com/mmbiz_png/hzGVnWia1nhWibjYvSywMsWJxyicjjklPI5OHww7KM7jupECIiaaCiaXee70oGnzeNZurKh8AsJImDdlMfC3zknT1iaQ/640?wx_fmt=png&amp;wx_co=1" data-fail="0" style="vertical-align: middle; width: 100%; visibility: visible !important;"></section></section></section><section><section><section><p><span style="color: rgb(63, 63, 63);">易烊千玺从14岁起默默资助一名农村残疾孩童上学，17岁时，他在中国扶贫基金会成立易烊千玺爱心基金，个人出资150万助力关爱留守儿童项目“童伴计划”。 作为千禧一代的正能量偶像，他一直以自身的力量给大众带来积极的正面倡导。</span></p><p><span style="color: rgb(63, 63, 63);">所以此次活动不仅仅是为了传递一本书、一句问候，而是为了号召更多的年轻人关注公益，投身公益。也许我们分享的一本旧书就能启蒙一个少年，一句问候就能温暖一个孤单儿童。</span></p><p><span style="color: rgb(63, 63, 63);">明星+公益的玩法已经并不新鲜，在过去的一段时间里，轻松筹就曾联手天后王菲拍摄救助唇腭裂儿童的公益海报。除此之外还和《无名之辈》、《红海行动》、《动物世界》、《我不是药神》、《西虹市首富》等数十部影视IP联手，在影迷圈掀起了数波公益热潮。</span></p></section></section></section><section><section><section><img class="" data-type="jpeg" data-w="640" _width="100%" src="https://mpt.135editor.com/mmbiz_jpg/hzGVnWia1nhWibjYvSywMsWJxyicjjklPI5TXlQ2AfUkIU6JMPHMSzNRpd1d7ZWAzBMFM6QBQ9WfMwb0BFgsP8hIw/640?wx_fmt=jpeg&amp;wx_co=1" data-fail="0" style="vertical-align: middle; width: 100%; visibility: visible !important;"><span style="color: rgb(63, 63, 63);">轻松筹成立于2014年9月，获得过IDG、腾讯和同道资本等多家知名投资机构的青睐，目前在全球183个国家和地区拥有5.5亿用户，帮助超过253万个家庭，筹集善款总额突破255亿元。</span></section></section></section><section><section><section><p><span style="color: rgb(63, 63, 63);">轻松筹最初是一家大病众筹平台，聚焦在公众健康保障领域，通过旗下大病救助业务帮助医患解决医疗资金等问题。</span></p><p><span style="color: rgb(63, 63, 63);">正是因为中国社会个人保险保障严重不足的现实状况，轻松筹这种事后救助的方式才得以爆发式的增长。另外轻松筹凭借社交应用的熟人关系，又为每一个大病众筹项目找到了强有力的信用背书，基于熟人社交关系的口口相传很多病人得以筹得救命的捐款。</span></p><p><span style="color: rgb(63, 63, 63);">虽然事后的救助非常及时有效，但治本的方法还是事前健康保障预防。为此，在2016年4月份轻松筹开始尝试轻松互助业务，即抱团取暖。会员缴纳10块钱，当互助保障体系内的成员罹患保障范围内的疾病后，就可以得到相应的互助金。</span></p><p><span style="color: rgb(63, 63, 63);">由于轻松筹的捐款对象与募款对象（病人）多是熟人关系，受到身边案例的触动，很多捐款人非常主动地加入互助计划。目前轻松互助已帮助1853位会员，累计划拨互助金总额超过3.6亿元。</span></p><p><span style="color: rgb(63, 63, 63);">虽然大病众筹和事前互助是两个非常应急的办法，但从现代商业文明历史发展的角度看去，其实市场早已孕育出了应对巨大危机的方式：保险。</span></p><p><span style="color: rgb(63, 63, 63);">在轻松筹的平台上，有很多保险业从业者到众筹项目的评论区评论道，“与其事后轻松筹，不如事前买保险。”</span></p><p><span style="color: rgb(63, 63, 63);">以众筹和互助为基础，为了防患于未然，为用户提供更全面的“事先预防”健康保障，轻松筹推出了互联网保险销售平台——轻松e保，专注于为有需求的用户提供多元化定制的保险产品。与传统保险公司相比，轻松筹有着无可比拟的“天然”优势：</span></p><p><span style="color: rgb(63, 63, 63);">传统的保险公司主要靠保险代理人推销来销售保险产品，交易成本高昂，导致的结果就是传统保险公司必须销售高单值的组合保险产品才能有利润。而且由于多年来传统保险企业这种强力推销的销售方式，中国消费者对保险产生了普遍的抵触心理。</span></p><p><span style="color: rgb(63, 63, 63);">而近年来出现的互联网保险公司虽然降低了保险的销售门槛，也推出了很多更具针对性的低单值的保险产品，但多为广场式的销售方式，除非是保险意识被强烈唤醒的消费者才会前去购买。</span></p><p><span style="color: rgb(63, 63, 63);">相较而言，在轻松筹旗下的互联网保险销售平台“轻松e保”上购买保险的用户以年轻人为主，因为这些用户在轻松筹的大病众筹项目中受到身边熟人罹患疾病的案例触动，很多年轻人被强烈唤醒了保险意识。这些潜在用户是传统保险公司和互联网保险公司都很难触达或教育的用户，但却是轻松筹正在服务的对象。</span></p><p><span style="color: rgb(63, 63, 63);">轻松筹利用区块链技术已加持在全产业链中，解决了“透明+信任”的问题，提升用户到企业到社会组织间的透明化运作。2018年10月，轻松筹联合华泰保险集团和中再集团推出了首款全产业链区块链保险，实时打通前端渠道、中端承保、理赔和后端再保，赋予互联网保险高效率、高透明等势能。是行业内“区块链+保险”模式的一大“革命性”跃进。同时，轻松筹发挥大数据技术分析应用的功能，为民众定制专属的健康保障管理服务。更是在人工智能技术方面不断钻研，致力于为大病患者提供全国性的治疗资讯及解决方案。一系列得科技创新的手段正不断地强化健康保障服务体系。</span></p></section></section></section><section><section><section><img class="" data-type="jpeg" data-w="640" _width="100%" src="https://mpt.135editor.com/mmbiz_jpg/hzGVnWia1nhWibjYvSywMsWJxyicjjklPI5k6ssY14TdmoJ2pjfZgSUicUt2b4csGvOvmaVXtgAKChPJPmk9smYHWA/640?wx_fmt=jpeg&amp;wx_co=1" data-fail="0" style="vertical-align: middle; width: 100%; visibility: visible !important;"></section></section></section><section><section><section><p><span style="color: rgb(63, 63, 63);">经过不断迭代，轻松筹的业务矩阵构建了一个顺畅的漏斗模型：其中大病众筹业务的5.5亿用户是整个商业模式的基础，这些用户经过大病救助的“场景教育”，被唤醒了自我保障事前防范的意识，在轻松e保投下了“人生第一份保单”。这部分用户需求的深度和密度都远远优于其他场景，还具有复购率高、粘性好等特点。</span><br></p><p><span style="color: rgb(63, 63, 63);">为了给用户提供更全面的健康保障服务，轻松筹推出轻松健康业务，为用户提供各种医疗健康服务，包括健康体检、在线问诊、绿色就医、营养保健、诊断检测等产品。</span></p><p><span style="color: rgb(63, 63, 63);">不知不觉间，轻松筹开启了一条新赛道，万亿规模且足够蓝海。与此同时，有了盈利能力的保障，轻松筹便更具备反哺公益的能力。</span></p><p><span style="color: rgb(63, 63, 63);">市场经济之父、《国富论》作者亚当斯密说，“商业才是最大的慈善。”而轻松筹的实践，切实地印证了这句话。</span></p></section></section></section></section></section>
-                        </div>
+                        {{ news.content|safe }}
                     </article>
 
                 </div>
@@ -40,25 +51,20 @@
                     <h3 class="title">文章评论（0）</h3>
                     <textarea name="comment" id="" class="comment-textarea login-textarea" placeholder="立即登录，参与评论" ></textarea>
                     <div class="submit-btn-group">
-                        <button class="button-btn">立即评论</button>
+                        <button class="submit-comment-btn" data-news-id="{{ news.pk  }}">立即评论</button>
                     </div>
                     <ul class="comment-list">
-                        <li>
+                        {% for comment in news.comments.all %}
+                            <li>
                             <div class="comment-info">
                                 <img src="https://pbs.twimg.com/profile_images/994898785829564428/Xqpr5Mtg_bigger.jpg" alt="" class="avata">
-                                <span class="author">小知了</span>
-                                <span class="pub-time">一小时前</span>
+                                <span class="author">{{ comment.author.username }}</span>
+                                <span class="pub-time">{{ comment.pub_time|time_since }}</span>
                             </div>
-                            <p class="comment-content">这是第一条评论</p>
+                            <p class="comment-content">{{ comment.content }}</p>
                         </li>
-                        <li>
-                            <div class="comment-info">
-                                <img src="https://pbs.twimg.com/profile_images/994898785829564428/Xqpr5Mtg_bigger.jpg" alt="" class="avata">
-                                <span class="author">小知了</span>
-                                <span class="pub-time">一小时前</span>
-                            </div>
-                            <p class="comment-content">这是第一条评论</p>
-                        </li>
+                        {% endfor %}
+
                     </ul>
                 </div>
             </div>

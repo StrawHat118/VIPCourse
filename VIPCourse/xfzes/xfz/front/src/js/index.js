@@ -159,7 +159,7 @@ Banner.prototype.listenArrowClick = function(){
 //
 Banner.prototype.animate = function(){
     var self = this;
-    self.bannerUl.animate({"left":-798*self.index},500);
+    self.bannerUl.stop().animate({"left":-798*self.index},500);//stop防止出现动画叠加
     //处理无限循环轮播图的小点点
     var index = self.index;
     if(index===0){
@@ -211,6 +211,8 @@ Banner.prototype.run = function () {
 function Index(){
     var self = this;
     self.page = 2;
+    self.category_id = 0;
+    self.loadBtn = $('#load-more-btn');
     template.defaults.imports.timeSince = function (dateValue) {
         var date = new Date(dateValue);
         var datets = date.getTime();//得到的是毫秒的时间
@@ -250,6 +252,7 @@ Index.prototype.listenLoadMoreEvent = function(){
             'url':'/news/list',
             'data':{
                 'p':self.page,
+                'category_id':self.category_id,
             },
             'success':function (result) {
                 if(result['code']===200){
@@ -271,10 +274,42 @@ Index.prototype.listenLoadMoreEvent = function(){
 
 }
 
+Index.prototype.listenCategorySwitchEvent = function(){
+    var tabGroup = $('.list-tab');
+    var self = this;
+    tabGroup.children().click(function () {
+        //tabGroup.children() 获取直接子元素，就是li标签
+        //this代表当前选中的li标签
+        var li = $(this);
+        var category_id = li.attr("data-category");
+        var page = 1;
+        xfzajax.get({
+            'url':'news/list/',
+            'data':{
+                'category_id':category_id,
+                'p':page,
+            },
+            'success':function (result) {
+                if(result['code']===200){
+                    var newsListGroup = $(".list-inner-group")
+                    var newses = result['data'];
+                    var tpl = template("news-item",{"newses":newses});
+                    newsListGroup.empty();//将标签下的所有子元素都删掉
+                    newsListGroup.append(tpl);
+                    self.page = 2;
+                    self.category_id = category_id;
+                    li.addClass('active').siblings().removeClass('active');
+                    self.loadBtn.show();
+                }
+            }
+        })
+    })
+}
 
 Index.prototype.run = function(){
     var self = this;
     self.listenLoadMoreEvent();
+    self.listenCategorySwitchEvent();
 
 
 }
