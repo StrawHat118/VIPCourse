@@ -33,13 +33,13 @@
                         <tbody>
                             {% for category in categories %}
                                 <tr data-pk="{{ category.pk }}" data-name="{{ category.name }}">
-                                <td>{{ category.name }}</td>
-                                <td>{{ category.id }}</td>
-                                <td>
-                                    <button class="btn-warning btn-xs edit-btn">编辑</button>
-                                    <button class="btn-danger btn-xs delete-btn">删除</button>
-                                </td>
-                            </tr>
+                                    <td>{{ category.name }}</td>
+                                    <td>{{ category.id }}</td>
+                                    <td>
+                                        <button class="btn-warning btn-xs edit-btn">编辑</button>
+                                        <button class="btn-danger btn-xs delete-btn">删除</button>
+                                    </td>
+                                </tr>
                             {% endfor %}
                         </tbody>
                     </table>

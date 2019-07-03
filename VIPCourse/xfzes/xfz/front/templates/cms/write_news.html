@@ -82,13 +82,13 @@
 
                         <div class="form-group">
                             <label for="content-form">内容</label>
-                            {% if news %}
+{#                            {% if news %}#}
                                 <script id="editor" type="text/plain">
                                 {{ news.content| safe }}
                                 </script>
-                            {% else %}
-                                <script id="editor" type="text/plain"><script>
-                            {% endif %}
+{#                            {% else %}#}
+{#                                <script id="editor" type="text/plain"><script>#}
+{#                            {% endif %}#}
                         </div>
                     </div>
                     <div class="box-footer">

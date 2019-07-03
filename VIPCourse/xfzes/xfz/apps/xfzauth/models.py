@@ -29,7 +29,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser,PermissionsMixin):
-    #我们不适用默认的自增长的主键
+    #我们不使用默认的自增长的主键
     #uuid/shortuuid
     #Shortuuidfield
     uid = ShortUUIDField(primary_key=True)

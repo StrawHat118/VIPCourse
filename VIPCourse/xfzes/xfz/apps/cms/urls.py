@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from . import views,course_views,staff_views
 
 app_name = 'cms '
 urlpatterns = [
@@ -20,6 +20,15 @@ urlpatterns = [
     path('news_list/',views.NewsListView.as_view(),name='news_list'),
     path('edit_news/',views.EditNewsView.as_view(),name='edit_news'),
     path('delete_news/',views.delete_news,name='delete_news'),
+]
 
+#这是课程管理相关的映射
+urlpatterns += [
+    path('pub_course/',course_views.PubCourse.as_view(),name='pub_course')
+]
 
+# 员工管理
+urlpatterns += [
+    path('staffs',staff_views.staffs_view,name='staffs'),
+    path('add_staff/',staff_views.AddStaffView.as_view(),name='add_staff'),
 ]
