@@ -25,7 +25,7 @@ SECRET_KEY = '+4&^4b7uq@f!aay^@o=w0&pg$-ys$)q$l6dk51#u6yk+4*lvve'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','184.170.219.63']
+ALLOWED_HOSTS = ['127.0.0.1','184.170.219.63','liejingchuan.club']
 
 
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'debug_toolbar',
     'apps.course',
+    'apps.payinfo',
 ]
 
 MIDDLEWARE = [
