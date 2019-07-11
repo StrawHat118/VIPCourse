@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'apps.course',
     'apps.payinfo',
+    'haystack',
 ]
 
 MIDDLEWARE = [
@@ -207,4 +208,14 @@ DEBUG_TOOLBAR_PANELS = [
 
 DEBUG_TOOLBAR_CONFIG = {
     'JQUERY_URL':'',
+}
+
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        # 设置haystack的搜索引擎
+        'ENGINE': 'apps.news.whoosh_cn_backend.WhooshEngine',
+        # 设置索引文件的位置
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
 }

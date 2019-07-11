@@ -85,4 +85,4 @@ def search(request):
     if q:
         newses = News.objects.filter(Q(title__icontains=q)|Q(content__icontains=q))
         context['newses'] = newses
-    return render(request, 'search/search.html', context=context)
+    return render(request, 'search/search1.html', context=context)

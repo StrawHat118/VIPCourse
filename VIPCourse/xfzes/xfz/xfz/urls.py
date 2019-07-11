@@ -26,7 +26,8 @@ urlpatterns = [
     path('course/',include("apps.course.urls")),
     path('ueditor/',include("apps.ueditor.urls")),
     path('payinfo/',include("apps.payinfo.urls")),
-    path('search/',views.search,name='search'),
+    # path('search/',views.search,name='search'),使用whoosh
+    path('search/',include('haystack.urls'))
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
