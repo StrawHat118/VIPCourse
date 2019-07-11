@@ -20,8 +20,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xfz/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="214" column="16" lean-forward="true" selection-start-line="214" selection-start-column="16" selection-end-line="214" selection-end-column="16" />
+            <state relative-caret-position="405">
+              <caret line="225" lean-forward="true" selection-start-line="225" selection-end-line="225" />
             </state>
           </provider>
         </entry>
@@ -107,7 +107,7 @@
       <file leaf-file-name="search.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/templates/search/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
+            <state relative-caret-position="521">
               <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
             </state>
           </provider>
@@ -301,45 +301,6 @@
               <item name="xfz" type="462c0819:PsiDirectoryNode" />
               <item name="xfz" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="xfz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="xfz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 virtualenv at ~/virtualSpaces/django-env &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="xfz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 virtualenv at ~/virtualSpaces/django-env &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3.7" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xfz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 virtualenv at ~/virtualSpaces/django-env &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3.7" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xfz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 virtualenv at ~/virtualSpaces/django-env &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3.7" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="haystack" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xfz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 virtualenv at ~/virtualSpaces/django-env &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3.7" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="haystack" type="462c0819:PsiDirectoryNode" />
-              <item name="backends" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -464,10 +425,11 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32965517" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.11712439" side_tool="true" weight="0.38482758" />
+      <window_info anchor="bottom" id="manage.py@xfz" order="14" visible="true" weight="0.32965517" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32965517" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.8828756" visible="true" weight="0.0055172415" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.8828756" weight="0.56689656" />
       <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.49919224" weight="0.32965517" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21567044" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
@@ -482,7 +444,6 @@
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="manage.py@xfz" order="14" weight="0.32965517" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
     </layout>
@@ -816,13 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/templates/search/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/templates/base/front_base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -858,10 +812,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/front/templates/search/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/xfz/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="214" column="16" lean-forward="true" selection-start-line="214" selection-start-column="16" selection-end-line="214" selection-end-column="16" />
+        <state relative-caret-position="405">
+          <caret line="225" lean-forward="true" selection-start-line="225" selection-end-line="225" />
         </state>
       </provider>
     </entry>
