@@ -25,7 +25,8 @@ urlpatterns = [
     path('account/',include("apps.xfzauth.urls")),
     path('course/',include("apps.course.urls")),
     path('ueditor/',include("apps.ueditor.urls")),
-    path('payinfo/',include("apps.payinfo.urls"))
+    path('payinfo/',include("apps.payinfo.urls")),
+    path('search/',views.search,name='search'),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

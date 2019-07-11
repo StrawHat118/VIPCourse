@@ -7,6 +7,7 @@ from django.http import Http404
 from .forms import PublicCommentForm
 from .models import Comment
 from apps.xfzauth.decorators import xfz_login_required
+from django.db.models import Q
 def index(request):
     count = settings.ONE_PAGE_NEWS_COUNT
     #select_related 查询这两个属性的外键，提前查询
@@ -74,3 +75,14 @@ def course_detail(request):
     return render(request,'course/course_detail.html')
 def auth(request):
     return render(request,'common/auth.html')
+
+
+
+
+def search(request):
+    q = request.GET.get('q')
+    context = {}
+    if q:
+        newses = News.objects.filter(Q(title__icontains=q)|Q(content__icontains=q))
+        context['newses'] = newses
+    return render(request, 'search/search.html', context=context)
